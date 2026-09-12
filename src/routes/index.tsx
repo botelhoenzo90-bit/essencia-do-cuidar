@@ -19,9 +19,9 @@ export const Route = createFileRoute("/")({ component: Index, head: () => ({ met
   { property: "og:title", content: "Essência do Cuidar | Psicologia em Jaru" },
   { property: "og:description", content: "Acolhimento psicológico e nutricional para todas as fases da vida, presencialmente em Jaru-RO e online." },
   { property: "og:type", content: "website" },
-  { property: "og:image", content: "https://blank-canvas-spark-8818.lovable.app/__l5e/assets-v1/dfde3b6d-39f4-4669-91a0-c05913a42a8d/whatsapp-icon.png" },
+  { property: "og:image", content: "https://blank-canvas-spark-8818.lovable.app/__l5e/assets-v1/18ffc72c-ec66-4c1e-8873-6115d8943ef0/whatsapp-icon.png" },
   { name: "twitter:card", content: "summary_large_image" },
-  { name: "twitter:image", content: "https://blank-canvas-spark-8818.lovable.app/__l5e/assets-v1/dfde3b6d-39f4-4669-91a0-c05913a42a8d/whatsapp-icon.png" },
+  { name: "twitter:image", content: "https://blank-canvas-spark-8818.lovable.app/__l5e/assets-v1/18ffc72c-ec66-4c1e-8873-6115d8943ef0/whatsapp-icon.png" },
 ] }) });
 
 const wa = "https://wa.me/5569993783222?text=Ol%C3%A1!%20Quero%20agendar%20uma%20consulta%20na%20Ess%C3%AAncia%20do%20Cuidar.";
