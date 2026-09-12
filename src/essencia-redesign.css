@@ -42,3 +42,28 @@
 .footer-brand h3{font-size:25px;margin-bottom:12px}
 @media(max-width:850px){.how-grid,.pain-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.hero-trust{grid-template-columns:1fr;gap:9px}.hero-trust span{display:grid;grid-template-columns:24px minmax(0,1fr);justify-content:start;text-align:left;min-height:56px}.how-grid,.pain-grid{grid-template-columns:1fr;padding:0 18px}.how-card,.pain-card{padding:28px 22px}.floating-wa img{width:58px!important;height:58px!important}}
+
+/* Ajustes finais solicitados: contraste da primeira seção e cards premium sem faixa verde */
+.ps-hero{background:var(--beige-200)!important}
+.ps-hero .hero-copy h1{color:var(--brown-950)!important;text-shadow:none!important}
+.ps-hero .hero-copy h1 em{color:var(--brown-700)!important}
+.ps-hero .hero-copy>p{color:var(--brown-900)!important}
+.ps-hero .hero-location span{color:var(--brown-900)!important}
+.ps-hero .hero-location svg{color:var(--brown-700)!important}
+.ps-hero .mini-label,.ps-hero .hero-trust span{color:var(--brown-900)!important}
+.ps-hero .hero-trust span{background:rgba(255,255,255,.78)!important;border-color:rgba(90,61,46,.16)!important}
+.how-card,.pain-card{border-radius:28px!important;background:#fffdf9!important;border:1px solid #e3d4c3!important;box-shadow:0 16px 38px rgba(74,52,40,.11)!important;padding:34px 28px!important;transition:transform .2s ease,box-shadow .2s ease}
+.how-card:hover,.pain-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px rgba(74,52,40,.15)!important}
+.how-card:before,.pain-card:before{display:none!important}
+.how-number{width:62px!important;height:62px!important;background:#f1e1ce!important;color:var(--brown-800)!important;border:1px solid #dfc6aa!important;box-shadow:none!important}
+.how-card h3,.pain-card h3{color:var(--brown-950)!important}
+.how-card p,.pain-card p{color:#715b4d!important}
+.pain-icon{background:#f1e1ce!important;color:var(--brown-700)!important;border:1px solid #dfc6aa!important;box-shadow:none!important}
+.pain-card{min-height:250px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
+.pain-card h3{font-size:21px!important;line-height:1.25!important}
+.pain-card p{max-width:300px}
+.floating-wa{width:70px!important;height:70px!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important}
+.floating-wa:before{display:none!important}
+.floating-wa img{display:none!important}
+.floating-wa:after{content:""!important;display:block!important;width:68px!important;height:68px!important;background:url('/__l5e/assets-v1/a5812cfa-f351-4b77-be19-14da9a078991/wa-icon.png') center/contain no-repeat!important;filter:drop-shadow(0 8px 14px rgba(0,0,0,.18))!important}
+@media(max-width:600px){.floating-wa{width:62px!important;height:62px!important}.floating-wa:after{width:60px!important;height:60px!important}}
