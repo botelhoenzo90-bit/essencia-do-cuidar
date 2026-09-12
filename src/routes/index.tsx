@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Children, type ReactNode } from "react";
 import { ArrowUpRight, Baby, Brain, CheckCircle2, ChevronDown, Clock3, HeartHandshake, Leaf, MapPin, MessageCircle, Moon, ShieldCheck, Sparkles, UsersRound } from "lucide-react";
 import logoEssencia from "@/assets/logo-essencia-do-cuidar.png";
+import whatsappIcon from "@/assets/whatsapp-icon.png.asset.json";
 import childImage from "@/assets/child.jpg";
 import clinicImage from "@/assets/clinic.jpg";
 import individualImage from "@/assets/esp-ginecologia.jpg";
@@ -18,7 +19,9 @@ export const Route = createFileRoute("/")({ component: Index, head: () => ({ met
   { property: "og:title", content: "Essência do Cuidar | Psicologia em Jaru" },
   { property: "og:description", content: "Acolhimento psicológico e nutricional para todas as fases da vida, presencialmente em Jaru-RO e online." },
   { property: "og:type", content: "website" },
+  { property: "og:image", content: "https://blank-canvas-spark-8818.lovable.app/__l5e/assets-v1/dfde3b6d-39f4-4669-91a0-c05913a42a8d/whatsapp-icon.png" },
   { name: "twitter:card", content: "summary_large_image" },
+  { name: "twitter:image", content: "https://blank-canvas-spark-8818.lovable.app/__l5e/assets-v1/dfde3b6d-39f4-4669-91a0-c05913a42a8d/whatsapp-icon.png" },
 ] }) });
 
 const wa = "https://wa.me/5569993783222?text=Ol%C3%A1!%20Quero%20agendar%20uma%20consulta%20na%20Ess%C3%AAncia%20do%20Cuidar.";
@@ -147,7 +150,7 @@ function Index() {
 
       <section id="contato" className="contact"><div className="contact-grid"><div className="contact-copy"><span className="section-eyebrow">Vamos conversar</span><h2>Dar o primeiro passo pode ser mais simples do que parece.</h2><p>Fale com nossa equipe pelo WhatsApp e veja os horários disponíveis para seu atendimento.</p><div className="contact-details"><span><MessageCircle size={18} />(69) 99378-3222</span><span><MapPin size={18} />Jaru – RO</span><span><Clock3 size={18} />Presencial e online</span></div><Button>Agende sua consulta</Button></div><div className="contact-card"><div className="contact-card-icon"><HeartHandshake /></div><h3>Essência do Cuidar</h3><p>Clínica de Psicologia e Autocuidado</p><b>Atendimento com hora marcada</b><a href={mapUrl} target="_blank" rel="noreferrer">Ver localização <ArrowUpRight size={15} /></a></div></div></section>
     </main>
-    <footer className="footer"><div className="footer-grid"><div className="footer-brand"><img src={logoEssencia} alt="Essência do Cuidar" /><p>Psicologia, nutrição e autocuidado com escuta, respeito e atenção à sua história.</p></div><div><h3>Atendimentos</h3><a href="#especialidades">Psicoterapia</a><a href="#especialidades">Casais e famílias</a><a href="#especialidades">Nutrição</a></div><div><h3>Encontre</h3><a href="#equipe">Nossa equipe</a><a href="#clinica">A clínica</a><a href="#duvidas">Dúvidas frequentes</a></div><div><h3>Contato</h3><a href={wa} target="_blank" rel="noreferrer"><MessageCircle size={15} />WhatsApp</a><a href={mapUrl} target="_blank" rel="noreferrer"><MapPin size={15} />Jaru – RO</a><span><Clock3 size={15} />Com hora marcada</span></div></div><div className="footer-bottom">© 2026 Essência do Cuidar <span>Psicologia e Autocuidado</span></div></footer>
-    <a className="floating-wa" href={wa} target="_blank" rel="noreferrer" aria-label="Agendar pelo WhatsApp"><MessageCircle aria-hidden="true" /></a>
+    <footer className="footer"><div className="footer-grid"><div className="footer-brand"><h3>Essência do Cuidar</h3><p>Psicologia, nutrição e autocuidado com escuta, respeito e atenção à sua história.</p></div><div><h3>Atendimentos</h3><a href="#especialidades">Psicoterapia</a><a href="#especialidades">Casais e famílias</a><a href="#especialidades">Nutrição</a></div><div><h3>Encontre</h3><a href="#equipe">Nossa equipe</a><a href="#clinica">A clínica</a><a href="#duvidas">Dúvidas frequentes</a></div><div><h3>Contato</h3><a href={wa} target="_blank" rel="noreferrer"><MessageCircle size={15} />WhatsApp</a><a href={mapUrl} target="_blank" rel="noreferrer"><MapPin size={15} />Jaru – RO</a><span><Clock3 size={15} />Com hora marcada</span></div></div><div className="footer-bottom">© 2026 Essência do Cuidar <span>Psicologia e Autocuidado</span></div></footer>
+    <a className="floating-wa" href={wa} target="_blank" rel="noreferrer" aria-label="Agendar pelo WhatsApp"><img src={whatsappIcon.url} alt="" aria-hidden="true" /></a>
   </div>;
 }
