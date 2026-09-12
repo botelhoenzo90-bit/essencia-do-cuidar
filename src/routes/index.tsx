@@ -1,43 +1,150 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Children, useState, type ReactNode } from "react";
-import { ArrowUpRight, Baby, Brain, CheckCircle2, ChevronDown, Clock3, HeartHandshake, Instagram, Leaf, MapPin, Menu, MessageCircle, Moon, Phone, ShieldCheck, Sparkles, UsersRound, X } from "lucide-react";
+import { Children, type ReactNode } from "react";
+import { ArrowUpRight, Baby, Brain, CheckCircle2, ChevronDown, Clock3, HeartHandshake, Leaf, MapPin, MessageCircle, Moon, ShieldCheck, Sparkles, UsersRound } from "lucide-react";
 import waIcon from "@/assets/wa-icon.png.asset.json";
 import "../essencia-final.css";
+import "../essencia-redesign.css";
 
 export const Route = createFileRoute("/")({ component: Index, head: () => ({ meta: [
   { title: "Essência do Cuidar | Clínica de Psicologia e Autocuidado" },
-  { name: "description", content: "Essência do Cuidar — Clínica de Psicologia e Autocuidado em Jaru-RO, com atendimento presencial e online para adultos, crianças, idosos, casais e famílias, além de acompanhamento nutricional." },
+  { name: "description", content: "Clínica de Psicologia e Autocuidado em Jaru-RO, com atendimento presencial e online para crianças, adolescentes, adultos, idosos, casais e famílias, além de acompanhamento nutricional." },
 ] }) });
+
 const wa = "https://wa.me/5569993783222?text=Ol%C3%A1!%20Quero%20agendar%20uma%20consulta%20na%20Ess%C3%AAncia%20do%20Cuidar.";
 const mapUrl = "https://www.google.com/maps/search/?api=1&query=Essencia+do+Cuidar+Clinica+de+Psicologia+Jaru+RO";
-const nav: [string, string][] = [["Início", "#inicio"], ["A Clínica", "#clinica"], ["Especialidades", "#especialidades"], ["Nossa Equipe", "#equipe"], ["Para quem é", "#publico"], ["Dúvidas", "#duvidas"], ["Contato", "#contato"]];
-const hero = "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1800&q=90";
-const clinic = "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=90";
-const images = ["https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=900&q=90", "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=900&q=90", "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=90", "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=900&q=90"];
-const specialties = [[Brain, "Psicologia para adultos", "Acolhimento para ansiedade, estresse, autoestima, relacionamentos e diferentes fases da vida."], [Baby, "Psicologia infantil", "Um espaço seguro e acolhedor para crianças, respeitando seu tempo, emoções e desenvolvimento."], [UsersRound, "Casais e famílias", "Escuta e acompanhamento para melhorar o diálogo, fortalecer vínculos e atravessar momentos difíceis."], [Moon, "Psicologia para idosos", "Cuidado emocional em fases de mudanças, luto, solidão, adaptação e novos projetos de vida."], [HeartHandshake, "Acolhimento psicológico", "Um espaço de escuta sem julgamentos para compreender o que você está vivendo e encontrar novos caminhos."], [Leaf, "Nutrição", "Acompanhamento nutricional com olhar individualizado para uma relação mais leve e consciente com a alimentação."]] as const;
-const team = [["Psicologia", "Psicólogo(a) 01", "Atendimento psicológico individualizado, com escuta acolhedora e respeito à história de cada pessoa."], ["Psicologia", "Psicólogo(a) 02", "Acompanhamento emocional para diferentes fases da vida, com cuidado e atenção às necessidades individuais."], ["Psicologia", "Psicólogo(a) 03", "Um espaço seguro para desenvolver autoconhecimento, equilíbrio emocional e novas possibilidades."], ["Nutrição", "Nutricionista", "Acompanhamento nutricional individualizado para uma relação mais leve, consciente e possível com a alimentação."]] as const;
-const reviews = [["Mariana Silva", "Encontrei um espaço muito acolhedor. Fui ouvida com respeito e saí de cada encontro mais tranquila e consciente."], ["Carlos Mendes", "O atendimento transmite muita confiança. Desde o primeiro contato, me senti respeitado e acolhido."], ["Ana Paula", "Minha filha se adaptou muito bem. O cuidado e a delicadeza no atendimento fizeram toda diferença para nossa família."], ["Fernanda Alves", "Um ambiente bonito, tranquilo e profissionais muito atenciosos. Foi uma experiência muito positiva."], ["Juliana Costa", "O acompanhamento me ajudou a olhar para mim com mais carinho e entender melhor minhas emoções."]] as const;
-const faqs = ["Como funciona a primeira consulta?", "O atendimento é para crianças e adultos?", "A clínica atende casais e famílias?", "Como funciona o acompanhamento nutricional?", "O atendimento pode ser presencial e online?", "Onde fica a clínica em Jaru-RO?"];
-function Button({ children = "Agendar atendimento", href = wa, light = false }: { children?: ReactNode; href?: string; light?: boolean }) { return <a className={`ps-btn ${light ? "ps-btn-light" : ""}`} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined}><MessageCircle size={17} />{children}<ArrowUpRight size={15} /></a>; }
-function Title({ eyebrow, title, sub }: { eyebrow: string; title: string; sub: string }) { return <div className="ps-section-title"><span className="section-eyebrow"><Sparkles size={14} />{eyebrow}</span><h2>{title}</h2><p>{sub}</p></div>; }
-function Logo({ small = false }: { small?: boolean }) { return <div className={`ps-logo ${small ? "small" : ""}`}><div className="logo-mark"><HeartHandshake size={small ? 22 : 28} /></div><div><strong>Essência do Cuidar</strong><small>CLÍNICA DE PSICOLOGIA E AUTOCUIDADO</small></div></div>; }
-function Marquee({ children, label, duration = 42 }: { children: ReactNode; label: string; duration?: number }) { const items = Children.toArray(children); return <div className="marquee" aria-label={label}><div className="marquee-track" style={{ ["--marquee-duration" as string]: `${duration}s` }}>{items}{items.map((x, i) => <div key={i} style={{ display: "contents" }} aria-hidden="true">{x}</div>)}</div></div>; }
-function Index() { const [menu, setMenu] = useState(false); const [faq, setFaq] = useState<number | null>(0); return <div className="ps-page">
-<header className="ps-header"><a href="#inicio"><Logo small /></a><nav>{nav.map(([x, h]) => <a href={h} key={x}>{x}</a>)}</nav><a className="header-wa" href={wa} target="_blank" rel="noreferrer"><Phone size={17} /><span>Agende pelo WhatsApp<br /><b>(69) 99378-3222</b></span></a><button className="menu-btn" onClick={() => setMenu(!menu)} aria-label="Abrir menu">{menu ? <X /> : <Menu />}</button></header>
-{menu && <div className="mobile-menu">{nav.map(([x, h]) => <a href={h} key={x} onClick={() => setMenu(false)}>{x}</a>)}<Button /></div>}
-<main>
-<section id="inicio" className="ps-hero"><div className="hero-bg"><img src={hero} alt="Ambiente acolhedor para cuidado emocional" /></div><div className="hero-copy"><span className="mini-label">ESSÊNCIA DO CUIDAR · CLÍNICA DE PSICOLOGIA E AUTOCUIDADO</span><h1>Um espaço para <em>cuidar de você</em> por inteiro.</h1><p>Psicologia e nutrição em um ambiente acolhedor, humano e seguro para adultos, crianças, idosos, casais e famílias.</p><div className="hero-location"><span><MapPin size={15} /> Jaru – RO</span><span><HeartHandshake size={15} /> Atendimento presencial e online</span></div><div className="hero-actions"><Button>Agende sua consulta</Button><Button light href="#especialidades">Conheça nossos atendimentos</Button></div><div className="hero-trust"><span><CheckCircle2 />Escuta sem julgamentos</span><span><CheckCircle2 />Atendimento individualizado</span><span><CheckCircle2 />Cuidado em todas as fases</span></div></div></section>
-<section className="ps-intro"><div className="intro-card"><div className="intro-icon"><HeartHandshake /></div><div><b>Você não precisa passar por tudo sozinho.</b><p>Buscar ajuda também é uma forma de se cuidar.</p></div></div><div className="intro-card"><div className="intro-icon"><ShieldCheck /></div><div><b>Um espaço seguro para ser você.</b><p>Respeito, privacidade e acolhimento em cada encontro.</p></div></div><div className="intro-card"><div className="intro-icon"><Leaf /></div><div><b>Cuidado que olha para o todo.</b><p>Psicologia, autocuidado e nutrição em uma visão integrada.</p></div></div></section>
-<section id="especialidades" className="ps-section"><Title eyebrow="Nossos atendimentos" title="Cuidado psicológico para diferentes momentos da vida" sub="Cada pessoa tem uma história. Nosso trabalho começa com uma escuta atenta e um atendimento construído de forma individualizada." /><Marquee label="Especialidades da clínica" duration={38}>{specialties.map(([Icon, name, text], i) => <article className="specialty-card" key={name}><div className="specialty-visual"><img src={images[i % images.length]} alt={name} loading="lazy" /><span>{String(i + 1).padStart(2, "0")}</span><div className="card-icon"><Icon /></div></div><div className="specialty-body"><h3>{name}</h3><p>{text}</p><a href={wa} target="_blank" rel="noreferrer">Quero saber mais <ArrowUpRight size={15} /></a></div></article>)}</Marquee><div className="section-cta"><Button>Conversar com a equipe</Button></div></section>
-<section className="ps-services"><Title eyebrow="Como podemos ajudar" title="Um cuidado pensado para você" sub="Atendimento próximo, respeitoso e personalizado para acolher diferentes necessidades." /><div className="service-grid"><article className="service-card"><div className="service-icon"><Brain /></div><h3>Psicoterapia</h3><p>Um espaço para compreender emoções, pensamentos, comportamentos e relações.</p></article><article className="service-card"><div className="service-icon"><UsersRound /></div><h3>Casais e famílias</h3><p>Para quem deseja construir diálogos mais saudáveis e fortalecer vínculos.</p></article><article className="service-card"><div className="service-icon"><Leaf /></div><h3>Nutrição</h3><p>Orientação para uma relação mais consciente, equilibrada e possível com a alimentação.</p></article></div></section>
-<section id="equipe" className="team-section"><Title eyebrow="Nossa equipe" title="Conheça os profissionais da Essência do Cuidar" sub="Uma equipe multidisciplinar preparada para acolher diferentes histórias, fases da vida e necessidades." /><div className="team-grid">{team.map(([role, title, text]) => <article className="team-card" key={title}><div className="team-photo-placeholder"><UsersRound /><span>Foto profissional em breve</span></div><div className="team-card-body"><div className="team-role">{role}</div><h3>{title}</h3><p>{text}</p><a href={wa} target="_blank" rel="noreferrer">Agendar atendimento <ArrowUpRight size={14} /></a></div></article>)}</div><div className="section-cta"><Button>Falar com nossa equipe</Button></div></section>
-<section id="publico" className="audience"><div className="audience-grid"><div className="audience-copy"><span className="section-eyebrow">Para quem é</span><h2>Existe um espaço para cada história.</h2><p>Nosso atendimento foi pensado para acompanhar pessoas em diferentes fases e contextos, sempre respeitando sua individualidade.</p><Button light>Encontrar meu atendimento</Button></div><div className="audience-list"><div className="audience-item"><Baby /><b>Crianças e adolescentes</b></div><div className="audience-item"><Brain /><b>Adultos</b></div><div className="audience-item"><HeartHandshake /><b>Casais</b></div><div className="audience-item"><UsersRound /><b>Famílias</b></div><div className="audience-item"><Moon /><b>Idosos</b></div><div className="audience-item"><Leaf /><b>Nutrição</b></div></div></div></section>
-<section id="clinica" className="about"><div className="about-grid"><div className="about-photo"><img src={clinic} alt="Ambiente da clínica" loading="lazy" /></div><div className="about-copy"><span className="section-eyebrow">A Essência do Cuidar</span><h2>Um ambiente tranquilo para cuidar do que realmente importa.</h2><p>A Essência do Cuidar Clínica de Psicologia e Autocuidado está em Jaru-RO para oferecer um espaço de escuta, acolhimento e cuidado. O atendimento pode ser presencial ou online, respeitando o momento e a rotina de cada pessoa.</p><div className="essencia-location"><span><MapPin size={15} />Jaru – RO</span><span><HeartHandshake size={15} />Presencial e online</span></div><div className="values"><div className="value"><HeartHandshake /><b>Acolhimento</b><small>Escuta com respeito e empatia.</small></div><div className="value"><ShieldCheck /><b>Segurança</b><small>Privacidade e cuidado.</small></div><div className="value"><Leaf /><b>Individualidade</b><small>Um plano para cada história.</small></div></div><Button>Conhecer a clínica</Button></div></div></section>
-<section className="ps-banner"><div><span>UM PASSO DE CADA VEZ</span><h2>Seu cuidado começa quando você decide se priorizar.</h2></div><Button light>Quero conversar</Button></section>
-<section className="reviews"><Title eyebrow="O que nossos pacientes dizem" title="Experiências que acolhem" sub="O vínculo e a confiança fazem parte do processo de cuidado." /><Marquee label="Avaliações" duration={34}>{reviews.map(([name, text]) => <article className="review-card" key={name}><div className="review-top"><div className="avatar">{name.split(" ").map(x => x[0]).slice(0, 2).join("")}</div><div><b>{name}</b><div className="stars">★★★★★</div></div></div><p>“{text}”</p><div className="review-foot"><CheckCircle2 /> Atendimento Essência do Cuidar</div></article>)}</Marquee></section>
-<section id="duvidas" className="faq"><div className="faq-grid"><div className="faq-intro"><span className="section-eyebrow">Dúvidas frequentes</span><h2>Antes de começar, talvez você queira saber...</h2><p>Se sua dúvida não estiver aqui, nossa equipe pode orientar você pelo WhatsApp.</p><Button>Tirar minha dúvida</Button></div><div className="faq-list">{faqs.map((q, i) => <div className="faq-item" key={q}><button onClick={() => setFaq(faq === i ? null : i)} aria-expanded={faq === i}><span>0{i + 1}</span><b>{q}</b><ChevronDown className={faq === i ? "rotate" : ""} /></button>{faq === i && <p>Entre em contato com nossa equipe pelo WhatsApp. Vamos explicar como funciona o atendimento e orientar você sobre o melhor caminho.</p>}</div>)}</div></div></section>
-<section id="contato" className="contact"><div className="contact-grid"><div className="contact-copy"><span className="section-eyebrow">Fale conosco</span><Logo /><h2>Vamos conversar sobre o seu momento?</h2><p>Agende sua consulta, escolha entre atendimento presencial ou online e tire suas dúvidas com nossa equipe.</p><Button>Agendar pelo WhatsApp</Button><div className="contact-details"><span><MessageCircle /> (69) 99378-3222</span><span><MapPin /> Jaru – RO</span><span><HeartHandshake /> Atendimento presencial e online</span><span><Clock3 /> Atendimento com hora marcada</span></div></div><div className="contact-map"><iframe title="Localização da Essência do Cuidar em Jaru-RO" src="https://www.google.com/maps?q=Jaru%20RO%20Essencia%20do%20Cuidar%20Clinica%20de%20Psicologia&output=embed" loading="lazy" /></div></div></section>
-</main>
-<footer className="footer"><div className="footer-grid"><div><Logo /><p>Essência do Cuidar — Clínica de Psicologia e Autocuidado. Jaru-RO. Atendimento presencial e online.</p></div><div><h3>Links rápidos</h3>{nav.slice(0, 6).map(([x, h]) => <a href={h} key={x}>{x}</a>)}</div><div><h3>Atendimentos</h3><a href="#especialidades">Psicologia</a><a href="#especialidades">Psicologia infantil</a><a href="#especialidades">Casais e famílias</a><a href="#especialidades">Nutrição</a></div><div><h3>Contato</h3><a href={wa} target="_blank" rel="noreferrer"><Phone /> (69) 99378-3222</a><a href={mapUrl} target="_blank" rel="noreferrer"><MapPin /> Jaru – RO</a><a href="https://instagram.com" target="_blank" rel="noreferrer"><Instagram /> Instagram</a></div></div><div className="footer-bottom"><span>© 2026 Essência do Cuidar. Todos os direitos reservados.</span><span>Privacidade · Termos de uso</span></div></footer>
-<a className="floating-wa" href={wa} target="_blank" rel="noreferrer" aria-label="Agendar pelo WhatsApp"><img src={waIcon.url} alt="WhatsApp" /></a>
-</div>; }
+const hero = "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1800&q=90";
+const clinic = "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=90";
+const serviceImages = [
+  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=90",
+  "https://images.unsplash.com/photo-1604881991720-f91add269bed?auto=format&fit=crop&w=1000&q=90",
+  "https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&w=1000&q=90",
+  "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1000&q=90",
+  "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1000&q=90",
+  "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=90",
+];
+const team = [
+  ["Psicologia", "Dra. Helena Martins", "Psicóloga clínica com atendimento acolhedor e individualizado para diferentes fases da vida."],
+  ["Psicologia", "Dra. Camila Duarte", "Atuação voltada ao cuidado emocional, autoconhecimento e construção de novas possibilidades."],
+  ["Psicologia", "Dra. Mariana Alves", "Acompanhamento psicológico com escuta atenta, respeito à individualidade e vínculo terapêutico."],
+  ["Nutrição", "Dra. Beatriz Almeida", "Nutricionista com olhar individualizado para hábitos, saúde e uma relação mais equilibrada com a alimentação."],
+] as const;
+const teamImages = [
+  "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=900&q=90",
+  "https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=900&q=90",
+  "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=900&q=90",
+  "https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=900&q=90",
+];
+const services = [
+  [Brain, "Psicoterapia individual", "Para ansiedade, estresse, autoestima, inseguranças, mudanças, luto, conflitos e momentos em que você sente que precisa de apoio."],
+  [Baby, "Psicologia infantil e adolescente", "Acolhimento para emoções, comportamento, dificuldades escolares, mudanças familiares, inseguranças e desenvolvimento emocional."],
+  [HeartHandshake, "Terapia para casais", "Para melhorar a comunicação, lidar com conflitos, reconstruir a conexão e compreender melhor as necessidades de cada um."],
+  [UsersRound, "Terapia familiar", "Um espaço para compreender conflitos, fortalecer vínculos e construir relações familiares mais saudáveis."],
+  [Moon, "Psicologia para idosos", "Acompanhamento em fases de transição, solidão, luto, mudanças na rotina, autoestima e novos projetos de vida."],
+  [Leaf, "Nutrição e autocuidado", "Acompanhamento nutricional para emagrecimento, organização alimentar, hábitos mais saudáveis e uma relação mais consciente com a comida."],
+] as const;
+const pains = [
+  [Brain, "Ansiedade e preocupação", "Pensamentos acelerados, excesso de preocupação, tensão e dificuldade de desligar a mente."],
+  [HeartHandshake, "Traumas e experiências difíceis", "Situações do passado podem continuar afetando emoções, relações e a forma como você se enxerga."],
+  [ShieldCheck, "Baixa autoestima", "Insegurança, autocobrança, medo de julgamento e dificuldade de reconhecer o próprio valor."],
+  [UsersRound, "Conflitos nos relacionamentos", "Discussões frequentes, distância emocional, dificuldade de diálogo ou problemas familiares."],
+  [Leaf, "Emagrecimento e alimentação", "Dificuldade para manter hábitos, comer por ansiedade, desorganização alimentar ou desejo de emagrecer com acompanhamento."],
+  [Moon, "Luto e mudanças de vida", "Momentos de perda, separações, mudanças familiares, aposentadoria e outras transições podem exigir apoio."],
+] as const;
+const audiences = [
+  [Baby, "Crianças e adolescentes", "Cuidado emocional respeitando o desenvolvimento e a individualidade de cada fase."],
+  [Brain, "Adultos", "Apoio para questões emocionais, profissionais, pessoais e relacionamentos."],
+  [HeartHandshake, "Casais", "Um espaço para diálogo, compreensão e fortalecimento da relação."],
+  [UsersRound, "Famílias", "Cuidado para relações familiares que precisam de escuta e novas formas de convivência."],
+  [Moon, "Idosos", "Acompanhamento para mudanças, perdas, solidão, autoestima e qualidade de vida emocional."],
+  [Leaf, "Quem busca nutrição", "Acompanhamento para melhorar hábitos e construir uma relação mais equilibrada com a alimentação."],
+] as const;
+const reviews = [
+  ["Mariana Silva", "Desde a primeira conversa me senti acolhida e respeitada. O atendimento me ajudou a entender melhor o que eu estava vivendo."],
+  ["Carlos Mendes", "Um ambiente muito tranquilo e um atendimento que transmite confiança. Foi importante para mim ter esse espaço de escuta."],
+  ["Ana Paula", "Minha filha se adaptou muito bem. A forma cuidadosa de conduzir o atendimento fez diferença para nossa família."],
+  ["Fernanda Alves", "Comecei a terapia em um momento difícil e hoje consigo olhar para várias situações de outra maneira."],
+  ["Juliana Costa", "O acompanhamento nutricional trouxe mais organização para minha rotina e uma relação mais consciente com a alimentação."],
+] as const;
+const faqs = ["Como funciona a primeira consulta?", "A clínica atende crianças e adolescentes?", "Vocês atendem casais e famílias?", "Como funciona a consulta com a nutricionista?", "O atendimento pode ser presencial e online?", "Como agendar uma consulta em Jaru-RO?"];
+
+function Button({ children = "Agende sua consulta", href = wa, light = false }: { children?: ReactNode; href?: string; light?: boolean }) {
+  return <a className={`ps-btn ${light ? "ps-btn-light" : ""}`} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined}><MessageCircle size={17} />{children}<ArrowUpRight size={15} /></a>;
+}
+function Title({ eyebrow, title, sub }: { eyebrow: string; title: string; sub: string }) {
+  return <div className="ps-section-title"><span className="section-eyebrow"><Sparkles size={14} />{eyebrow}</span><h2>{title}</h2><p>{sub}</p></div>;
+}
+function Marquee({ children, label, duration = 42 }: { children: ReactNode; label: string; duration?: number }) {
+  const items = Children.toArray(children);
+  return <div className="marquee" aria-label={label}><div className="marquee-track" style={{ ["--marquee-duration" as string]: `${duration}s` }}>{items}{items.map((x, i) => <div key={i} style={{ display: "contents" }} aria-hidden="true">{x}</div>)}</div></div>;
+}
+
+function Index() {
+  return <div className="ps-page">
+    <main>
+      <section id="inicio" className="ps-hero">
+        <div className="hero-bg"><img src={hero} alt="Psicóloga em atendimento acolhedor" /></div>
+        <div className="hero-copy">
+          <span className="mini-label">ESSÊNCIA DO CUIDAR · PSICOLOGIA E AUTOCUIDADO</span>
+          <h1>Cuide da sua <em>mente, emoções e bem-estar.</em></h1>
+          <p>Psicologia como principal cuidado, com acolhimento e acompanhamento profissional para crianças, adolescentes, adultos, idosos, casais e famílias. Também contamos com atendimento nutricional.</p>
+          <div className="hero-location"><span><MapPin size={15} />Jaru – RO</span><span><HeartHandshake size={15} />Presencial e online</span></div>
+          <div className="hero-actions"><Button>Agende sua consulta</Button><Button light href="#como-funciona">Entenda como funciona</Button></div>
+          <div className="hero-trust"><span><CheckCircle2 />Escuta acolhedora</span><span><CheckCircle2 />Atendimento individualizado</span><span><CheckCircle2 />Profissionais especializados</span></div>
+        </div>
+      </section>
+
+      <section id="como-funciona" className="how-section">
+        <Title eyebrow="Como funciona" title="Você não precisa saber por onde começar." sub="O primeiro passo é conversar. A partir do que você está vivendo, o profissional entende suas necessidades e orienta o melhor caminho de acompanhamento." />
+        <div className="how-grid">
+          <article className="how-card"><div className="how-number">01</div><h3>Conte o que está acontecendo</h3><p>Você terá um espaço seguro para falar sobre suas emoções, dificuldades, relações e objetivos.</p></article>
+          <article className="how-card"><div className="how-number">02</div><h3>Entendemos suas necessidades</h3><p>O atendimento considera sua história, seu momento atual e aquilo que você deseja transformar.</p></article>
+          <article className="how-card"><div className="how-number">03</div><h3>Construímos seu cuidado</h3><p>O acompanhamento é conduzido de forma individualizada, com respeito ao seu ritmo e às suas necessidades.</p></article>
+        </div>
+        <div className="section-cta"><Button>Quero dar o primeiro passo</Button></div>
+      </section>
+
+      <section id="especialidades" className="ps-section">
+        <Title eyebrow="Nossos atendimentos" title="Psicologia, terapia e nutrição para diferentes necessidades" sub="Conheça os principais atendimentos da Essência do Cuidar e encontre o cuidado que faz sentido para o seu momento." />
+        <Marquee label="Nossos atendimentos" duration={42}>
+          {services.map(([Icon, name, text], i) => <article className="specialty-card" key={name}><div className="specialty-visual"><img src={serviceImages[i]} alt={name} loading="lazy" /><span>{String(i + 1).padStart(2, "0")}</span><div className="card-icon"><Icon /></div></div><div className="specialty-body"><h3>{name}</h3><p>{text}</p><a href={wa} target="_blank" rel="noreferrer">Agendar este atendimento <ArrowUpRight size={15} /></a></div></article>)}
+        </Marquee>
+        <div className="section-cta"><Button>Agendar pelo WhatsApp</Button></div>
+      </section>
+
+      <section className="pain-section">
+        <Title eyebrow="Como podemos ajudar" title="Um cuidado pensado para você" sub="Talvez você esteja passando por algo que não sabe como resolver sozinho. A terapia pode ser um espaço para compreender o que acontece e buscar novas formas de lidar com isso." />
+        <div className="pain-grid">{pains.map(([Icon, title, text]) => <article className="pain-card" key={title}><div className="pain-icon"><Icon /></div><h3>{title}</h3><p>{text}</p></article>)}</div>
+        <div className="section-cta"><Button>Conversar sobre meu momento</Button></div>
+      </section>
+
+      <section id="equipe" className="team-section">
+        <Title eyebrow="Nossa equipe" title="Profissionais para acompanhar você" sub="Uma equipe multidisciplinar com foco em acolhimento, escuta e cuidado individualizado." />
+        <div className="team-grid">{team.map(([role, title, text], i) => <article className="team-card" key={title}><div className="team-photo-placeholder"><img src={teamImages[i]} alt={title} loading="lazy" /></div><div className="team-card-body"><div className="team-role">{role}</div><h3>{title}</h3><p>{text}</p><a href={wa} target="_blank" rel="noreferrer">Agendar atendimento <ArrowUpRight size={14} /></a></div></article>)}</div>
+        <div className="section-cta"><Button>Falar com nossa equipe</Button></div>
+      </section>
+
+      <section id="publico" className="audience">
+        <div className="audience-grid"><div className="audience-copy"><span className="section-eyebrow">Para quem é</span><h2>Cada fase da vida merece um cuidado diferente.</h2><p>Atendemos diferentes públicos, sempre considerando a história, a rotina e as necessidades de cada pessoa, casal ou família.</p><Button>Encontrar meu atendimento</Button></div><div className="audience-list">{audiences.map(([Icon, title, text]) => <div className="audience-item" key={title}><Icon /><div><b>{title}</b><small>{text}</small></div></div>)}</div></div>
+        <div className="section-cta"><Button light>Quero agendar uma conversa</Button></div>
+      </section>
+
+      <section id="clinica" className="about">
+        <div className="about-grid"><div className="about-photo"><img src={clinic} alt="Ambiente acolhedor para atendimento psicológico" loading="lazy" /></div><div className="about-copy"><span className="section-eyebrow">A Essência do Cuidar</span><h2>Um espaço para falar, compreender e cuidar.</h2><p>Em Jaru-RO, a Essência do Cuidar oferece um ambiente acolhedor para quem deseja cuidar da saúde emocional e do bem-estar. A psicologia está no centro do nosso trabalho, com a nutrição como parte do cuidado integral.</p><div className="essencia-location"><span><MapPin size={15} />Jaru – RO</span><span><HeartHandshake size={15} />Presencial e online</span></div><div className="values"><div className="value"><HeartHandshake /><b>Acolhimento</b><small>Um espaço para ser ouvido.</small></div><div className="value"><ShieldCheck /><b>Privacidade</b><small>Cuidado com respeito.</small></div><div className="value"><Leaf /><b>Individualidade</b><small>Cada história importa.</small></div></div><Button>Conhecer a clínica</Button></div></div>
+      </section>
+
+      <section className="ps-banner"><div><span>COMECE PELO PRIMEIRO PASSO</span><h2>Você não precisa esperar tudo ficar difícil para pedir ajuda.</h2></div><Button light>Agendar minha consulta</Button></section>
+
+      <section className="reviews"><Title eyebrow="Experiências" title="Um atendimento que começa com acolhimento" sub="Cuidado emocional é também ter um espaço onde você possa falar com segurança e respeito." /><Marquee label="Experiências de pacientes" duration={36}>{reviews.map(([name, text]) => <article className="review-card" key={name}><div className="review-top"><div className="avatar">{name.split(" ").map(x => x[0]).slice(0, 2).join("")}</div><div><b>{name}</b><div className="stars">★★★★★</div></div></div><p>“{text}”</p><div className="review-foot"><CheckCircle2 /> Essência do Cuidar</div></article>)}</Marquee><div className="section-cta"><Button>Quero ser atendido</Button></div></section>
+
+      <section className="location-section" id="localizacao">
+        <Title eyebrow="Onde estamos" title="Seu cuidado em Jaru-RO" sub="Atendimento presencial e online, com horário marcado. Consulte a localização e fale com a equipe para confirmar seu atendimento." />
+        <div className="location-wrap"><div className="location-copy"><div className="contact-details"><span><MapPin size={18} />Jaru – RO</span><span><Clock3 size={18} />Atendimento com hora marcada</span><span><HeartHandshake size={18} />Presencial e online</span></div><div className="section-cta"><Button light>Agendar pelo WhatsApp</Button></div></div><div className="location-map"><iframe title="Localização da Essência do Cuidar em Jaru-RO" src={`https://www.google.com/maps?q=Essencia+do+Cuidar+Clinica+de+Psicologia+Jaru+RO&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" /></div></div>
+      </section>
+
+      <section id="duvidas" className="faq"><div className="faq-grid"><div className="faq-intro"><span className="section-eyebrow">Dúvidas frequentes</span><h2>Antes de começar, talvez você queira saber...</h2><p>Se sua dúvida não estiver aqui, nossa equipe pode orientar você pelo WhatsApp.</p><Button>Tirar minha dúvida</Button></div><div className="faq-list">{faqs.map((q, i) => <details key={q} open={i === 0}><summary>{q}<ChevronDown size={18} /></summary><p>{i === 0 ? "A primeira consulta é um momento de acolhimento e conversa. O profissional conhece sua demanda, entende o que você está vivendo e orienta o acompanhamento mais adequado." : i === 1 ? "Sim. A clínica atende crianças e adolescentes com uma abordagem adequada a cada fase do desenvolvimento." : i === 2 ? "Sim. Há atendimentos voltados para casais e famílias, sempre respeitando a dinâmica e as necessidades de cada caso." : i === 3 ? "A nutricionista avalia sua rotina, hábitos e objetivos para orientar um acompanhamento individualizado." : i === 4 ? "Sim. A Essência do Cuidar oferece atendimento presencial em Jaru-RO e também atendimento online." : "Entre em contato pelo WhatsApp para consultar horários e receber as orientações para agendamento."}</p></details>)}</div></div><div className="section-cta"><Button>Falar com a equipe</Button></div></section>
+
+      <section id="contato" className="contact"><div className="contact-grid"><div className="contact-copy"><span className="section-eyebrow">Vamos conversar</span><h2>Dar o primeiro passo pode ser mais simples do que parece.</h2><p>Fale com nossa equipe pelo WhatsApp e veja os horários disponíveis para seu atendimento.</p><div className="contact-details"><span><MessageCircle size={18} />(69) 99378-3222</span><span><MapPin size={18} />Jaru – RO</span><span><Clock3 size={18} />Presencial e online</span></div><Button>Agende sua consulta</Button></div><div className="contact-card"><div className="contact-card-icon"><HeartHandshake /></div><h3>Essência do Cuidar</h3><p>Clínica de Psicologia e Autocuidado</p><b>Atendimento com hora marcada</b><a href={mapUrl} target="_blank" rel="noreferrer">Ver localização <ArrowUpRight size={15} /></a></div></div></section>
+    </main>
+    <a className="floating-wa" href={wa} target="_blank" rel="noreferrer" aria-label="Agendar pelo WhatsApp"><img src={waIcon.url} alt="WhatsApp" /></a>
+  </div>;
+}
