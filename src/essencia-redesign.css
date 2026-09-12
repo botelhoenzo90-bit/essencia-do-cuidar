@@ -67,3 +67,48 @@
 .floating-wa img{display:none!important}
 .floating-wa:after{content:""!important;display:block!important;width:68px!important;height:68px!important;background:url('/__l5e/assets-v1/a5812cfa-f351-4b77-be19-14da9a078991/wa-icon.png') center/contain no-repeat!important;filter:drop-shadow(0 8px 14px rgba(0,0,0,.18))!important}
 @media(max-width:600px){.floating-wa{width:62px!important;height:62px!important}.floating-wa:after{width:60px!important;height:60px!important}}
+
+/* Ritmo mais compacto entre as seções */
+.ps-hero,.hero-copy{min-height:650px}
+.hero-copy{padding-top:30px;padding-bottom:42px}
+.hero-logo{max-height:190px;margin-bottom:8px}
+.hero-copy h1{margin:4px 0 12px}
+.hero-copy>p{margin:0}
+.hero-location{margin-top:14px}
+.hero-actions{margin-top:16px}
+.hero-trust{margin-top:18px}
+.ps-section,.team-section,.about,.reviews,.contact,.faq,
+.how-section,.pain-section,.location-section{padding-top:64px;padding-bottom:64px}
+.audience{padding-top:64px;padding-bottom:64px}
+.ps-section-title{margin-bottom:30px}
+.section-cta{margin-top:28px}
+.team-photo-placeholder{height:210px}
+.team-card-body{padding-top:20px;padding-bottom:20px}
+.about-photo{height:440px}
+.values{margin-top:20px;margin-bottom:20px}
+.ps-banner{margin-bottom:0}
+.footer{padding-top:42px}
+.footer-bottom{margin-top:26px}
+@media(max-width:850px){
+  .ps-section,.team-section,.about,.reviews,.contact,.faq,
+  .how-section,.pain-section,.location-section,.audience{padding-top:54px;padding-bottom:54px}
+}
+@media(max-width:600px){
+  .ps-hero,.hero-copy{min-height:610px}
+  .hero-copy{padding-top:18px;padding-bottom:28px}
+  .hero-logo{max-height:145px;margin-bottom:4px}
+  .hero-copy h1{margin:2px 0 10px}
+  .hero-location{margin-top:10px}
+  .hero-actions{margin-top:12px}
+  .hero-trust{margin-top:14px}
+  .ps-section,.team-section,.about,.reviews,.contact,.faq,
+  .how-section,.pain-section,.location-section,.audience{padding-top:44px;padding-bottom:44px}
+  .ps-section-title{margin-bottom:24px}
+  .ps-section-title h2{margin-top:8px;margin-bottom:8px}
+  .section-cta{margin-top:22px}
+  .team-photo-placeholder{height:170px}
+  .about-photo{height:250px}
+  .audience-grid,.about-grid,.contact-grid,.faq-grid{gap:24px}
+  .footer{padding-top:36px}
+  .footer-grid{gap:22px}
+}
