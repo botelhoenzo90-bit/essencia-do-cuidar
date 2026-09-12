@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Children, useState, type ReactNode } from "react";
-import { ArrowUpRight, Baby, Brain, CalendarDays, CheckCircle2, ChevronDown, HeartHandshake, Instagram, Leaf, MapPin, Menu, MessageCircle, Moon, Phone, ShieldCheck, Sparkles, UsersRound, X } from "lucide-react";
+import { ArrowUpRight, Baby, Brain, CalendarDays, CheckCircle2, ChevronDown, Clock3, HeartHandshake, Instagram, Leaf, MapPin, Menu, MessageCircle, Moon, Phone, ShieldCheck, Sparkles, UsersRound, X } from "lucide-react";
 import logoAsset from "@/assets/logo-prosaude.png.asset.json";
 import waIcon from "@/assets/wa-icon.png.asset.json";
 
